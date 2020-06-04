@@ -1,135 +1,20 @@
-alias pwgen='~/.arsenal/pwgen.sh'
-
-alias add:pwd='security add-generic-password -a $USER -s playground -w $(pwgen)'
-alias get:pwd='security find-generic-password -a $USER -s playground -w'
-
-## alias mfra:build='gulp scripts --skipWatch && gulp sass --skipWatch && gulp images --skipWatch && gulp icons --skipWatch && gulp vendor --skipWatch'
-alias bu:js='NODE_ENV=development sgmf-scripts --compile js'
-alias bu:css='NODE_ENV=development sgmf-scripts --compile css'
-alias bu:prod='sgmf-scripts --compile js && sgmf-scripts --compile css'
-alias bu:watch='NODE_ENV=development sgmf-scripts --watch'
-alias bu:up='sgmf-scripts --uploadCartridge'
-
-alias buShaLib='sudo mount -t davfs https://dev05-shop-bulgari.demandware.net/on/demandware.servlet/webdav/Sites/Libraries/RefArchSharedLibrary /mnt/buShaLib'
-alias bu05='sudo mount -t davfs https://dev05-shop-bulgari.demandware.net/on/demandware.servlet/webdav/Sites/Cartridges /mnt/bu05'
-
-alias ll='ls -l'
-alias g='grunt'
-alias refresh='source ~/.zprofile'
-alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
-
-alias date:2="date +%Y%m%d%H%M"
-alias tempo="curl wttr.in"
-alias bose="BluetoothConnector -c 2C-41-A1-C9-12-E0 --notify"
-
-# silence is golden
-alias pasx='openssl des3 -aes128 -base64 -d -in $HOME/.ssh/pp.x | grep'
-
-# some grep
-alias dox='cat ~/.ssh/doxbin | grep'
-alias xdox='subl ~/.ssh/doxbin'
-alias psss='open ~/.ssh/'
-
-alias music:dl='youtube-dl --extract-audio --audio-format mp3'
-alias music:play='mplayer . *.mp3 --no-audio-display'
-
-alias rm:trash='sudo rm -rf ~/.Trash/*'
-
-# alias foo='echo "foo foo" >> note.txt'
-# echo "$foo" >> note.txt
-
-#foo='echo "foo foo" >> note.txt'
-
-# new-note () { 
-#    [ -z "$1" ]; NAME=$1
-
-#   echo "$NAME" >> ~/dev-src/test.md
-#   . ~/dev-src/test.md
-# }
-
-#new-note () { $NAME=$1 echo "$(date) => " $NAME >> ~/dev-src/test.md}
-
-# alias dox='cat ~/.ssh/doxbin.txt | cat'
-
-# logger This message is sent to syslog
-#  tail /var/log/user.log
-
-if [[ "$OSTYPE" == "darwin"* ]]; then
-alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
-fi
-
-# random number
-alias rand-num='od -vAn -N4 -tu4 < /dev/urandom'
-
-# silence is golden
-alias pasxe='subl $HOME/.ssh/pp.x'
-
-# Password Generator
-alias pasg='openssl rand -base64 12'
-
-alias pasc='openssl rand -base64 12 |xclip -sel clip'
-
-# brew boogie man
-alias bru='brew update; brew upgrade; brew cleanup; brew doctor'
-
-# open CoreServices
-alias sysapp='open /System/Library/CoreServices/Applications/'
-
-# open xcode dev folder
-alias devapp='open /Applications/Xcode.app/Contents/Applications/'
-
-# alias drush='/Applications/MAMP/bin/php/php5.6.10/bin/php /opt/drush/drush.php'
-
-# edit bash_profile in subl
-alias edit:alias='subl $HOME/.zsh_aliases'
-
-# Generate password
-alias passgen='openssl rand -base64 12'
-
-# PHP Starting the web server
-alias phps='php -S localhost:8000'
-
-# python Simple HTTP Server
-alias s='python -m SimpleHTTPServer'
-
-alias lol='rm -rf node_modules && npm install'
-
-alias git:rm='git branch | grep -v "safe" | xargs git branch -D'
-
-alias cd:w='cd $HOME/Sites/_liujo/sfcc'
-
-alias cd:colmar='cd $HOME/Sites/_liujo/sfcc/cartridges/app_colmar'
-alias cd:common='cd $HOME/Sites/_liujo/sfcc/cartridges/app_common'
-alias cd:liujo='cd $HOME/Sites/_liujo/sfcc/cartridges/app_liujo'
-alias cd:bilgari='cd $HOME/Sites/_bilgari/sfcc/cartridges/app_bilgari'
-
-alias repo='node $HOME/Sites/cli-tool/echoclean3/index.js'
-
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
-alias bu:app='webpack --cartridge app_common --progress --mode development'
-alias bu:lu='webpack --cartridge app_liujo --progress --mode development'
-
+#!/bin/zsh
 alias bb='cd $HOME/Sites/_liujo/sfcc && echo "=======================================" && webpack --cartridge app_colmar --progress --mode development'
-
-# WatchDog
-alias ww='cd $HOME/Sites/_liujo/sfcc && echo "=============== WatchDog ==============" && npm run build:common && webpack --cartridge app_colmar --watch --mode development'
-
-alias myip='ifconfig |grep inet'
-
-alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Resources/jsc'
-
-alias tail_ls='_tail_ls() { ls -l "$1" | tail ;}; _tail_ls'
-
-alias nmapff="nmap -T4 -A -v"
-
+alias bru='brew update; brew upgrade; brew cleanup; brew doctor'
+alias date:2="date +%Y%m%d%H%M"
+alias edit:alias='subl $HOME/.zsh_aliases'
 alias get:repo="$HOME/.arsenal/install"
-
-alias Trash="rm -rf ~/.Trash/*"
-
-alias subl:test="subl $HOME/Sites/FRED/root/int_gtm/cartridges/int_gtm/cartridge/controllers/Test.js"
-
-alias refresh:hosts="sudo dscacheutil -flushcache"
+alias git:rm='git branch | grep -v "safe" | xargs git branch -D'
+alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Resources/jsc'
+alias ll='webpack --cartridge app_liujo --progress --mode development'
+alias pasg='openssl rand -base64 12'
+alias randn='od -vAn -N4 -tu4 < /dev/urandom'
+alias refresh='source ~/.zprofile'
+alias repo='node $HOME/Sites/cli-tool/echoclean3/index.js'
+alias trash='sudo rm -rf ~/.Trash/*'
+alias s='python -m SimpleHTTPServer'
+alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+alias tempo="curl wttr.in"
+alias todo='subl $HOME/Sites/design-colmar/README.md'
+alias Trash='rm -rf ~/.Trash/*'
+alias ww='cd $HOME/Sites/_liujo/sfcc && echo "=============== WatchDog ==============" && npm run build:common && webpack --cartridge app_colmar --watch --mode development'
