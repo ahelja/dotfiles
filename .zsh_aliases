@@ -7,7 +7,6 @@ alias get:pwd='security find-generic-password -a $USER -s playground -w'
 alias bu:js='NODE_ENV=development sgmf-scripts --compile js'
 alias bu:css='NODE_ENV=development sgmf-scripts --compile css'
 alias bu:prod='sgmf-scripts --compile js && sgmf-scripts --compile css'
-alias bu='bu:js && bu:css'
 alias bu:watch='NODE_ENV=development sgmf-scripts --watch'
 alias bu:up='sgmf-scripts --uploadCartridge'
 
@@ -16,7 +15,7 @@ alias bu05='sudo mount -t davfs https://dev05-shop-bulgari.demandware.net/on/dem
 
 alias ll='ls -l'
 alias g='grunt'
-alias refresh='source ~/.bashrc'
+alias refresh='source ~/.zprofile'
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 
 alias date:2="date +%Y%m%d%H%M"
@@ -81,13 +80,8 @@ alias devapp='open /Applications/Xcode.app/Contents/Applications/'
 
 # alias drush='/Applications/MAMP/bin/php/php5.6.10/bin/php /opt/drush/drush.php'
 
-# cat bash_profile
-alias cat:bash='cd ~; cat .bash_profile'
-
-alias grep:bash='$HOME/.bash_profile | grep'
-
 # edit bash_profile in subl
-alias edit:alias='subl $HOME/.bash_aliases'
+alias edit:alias='subl $HOME/.zsh_aliases'
 
 # Generate password
 alias passgen='openssl rand -base64 12'
@@ -98,15 +92,16 @@ alias phps='php -S localhost:8000'
 # python Simple HTTP Server
 alias s='python -m SimpleHTTPServer'
 
-alias yolo='rm -rf node_modules && npm install'
+alias lol='rm -rf node_modules && npm install'
 
 alias git:rm='git branch | grep -v "safe" | xargs git branch -D'
 
 alias cd:w='cd $HOME/Sites/_liujo/sfcc'
 
-alias cd:co='cd $HOME/Sites/_liujo/sfcc/cartridges/app_colmar'
-alias cd:app='cd $HOME/Sites/_liujo/sfcc/cartridges/app_common'
-alias cd:lu='cd $HOME/Sites/_liujo/sfcc/cartridges/app_liujo'
+alias cd:colmar='cd $HOME/Sites/_liujo/sfcc/cartridges/app_colmar'
+alias cd:common='cd $HOME/Sites/_liujo/sfcc/cartridges/app_common'
+alias cd:liujo='cd $HOME/Sites/_liujo/sfcc/cartridges/app_liujo'
+alias cd:bilgari='cd $HOME/Sites/_bilgari/sfcc/cartridges/app_bilgari'
 
 alias repo='node $HOME/Sites/cli-tool/echoclean3/index.js'
 
@@ -118,10 +113,10 @@ alias l='ls -CF'
 alias bu:app='webpack --cartridge app_common --progress --mode development'
 alias bu:lu='webpack --cartridge app_liujo --progress --mode development'
 
-alias bu:co='cd $HOME/Sites/_liujo/sfcc && echo "=======================================" && webpack --cartridge app_colmar --progress --mode development'
+alias bb='cd $HOME/Sites/_liujo/sfcc && echo "=======================================" && webpack --cartridge app_colmar --progress --mode development'
 
 # WatchDog
-alias wd='cd $HOME/Sites/_liujo/sfcc && echo "=============== WatchDog ==============" && npm run build:common && webpack --cartridge app_colmar --watch --mode development'
+alias ww='cd $HOME/Sites/_liujo/sfcc && echo "=============== WatchDog ==============" && npm run build:common && webpack --cartridge app_colmar --watch --mode development'
 
 alias myip='ifconfig |grep inet'
 
