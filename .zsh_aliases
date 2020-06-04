@@ -5,7 +5,6 @@ alias date:2="date +%Y%m%d%H%M"
 alias edit:alias='subl $HOME/.zsh_aliases'
 alias get:repo="$HOME/.arsenal/install"
 alias git:rm='git branch | grep -v "safe" | xargs git branch -D'
-alias jsc='/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Resources/jsc'
 alias ll='webpack --cartridge app_liujo --progress --mode development'
 alias pasg='openssl rand -base64 12'
 alias randn='od -vAn -N4 -tu4 < /dev/urandom'
