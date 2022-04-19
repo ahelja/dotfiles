@@ -1,4 +1,4 @@
-Ten steps to dotfiles
+Ten steps to dotFiles
 =====================
 
 Make directory for dotfiles
