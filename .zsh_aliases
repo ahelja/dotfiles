@@ -1,19 +1,71 @@
+
+# =============================================================================
+# CHANGELOG
+# =============================================================================
+# 2025-11-24: Riorganizzazione completa, alias suddivisi per categoria, documentazione migliorata, alias refresh ora ricarica sia .zprofile che .zshrc
+# 2025-11-24: Aggiunta sezione CHANGELOG
+#
 #!/bin/zsh
-alias bb='cd $HOME/Sites/_liujo/sfcc && echo "=======================================" && webpack --cartridge app_colmar --progress --mode development'
-alias bru='brew update; brew upgrade; brew cleanup; brew doctor'
-alias date:2="date +%Y%m%d%H%M"
-alias edit:alias='subl $HOME/.zsh_aliases'
-alias get:repo="$HOME/.arsenal/install"
+
+# =============================================================================
+# ZSH Aliases Configuration
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Development Tools (DDEV/Pimcore)
+# -----------------------------------------------------------------------------
+alias dev='ddev'
+alias cache='ddev exec bin/console cache:clear'
+alias rebuild:class='ddev exec bin/console pimcore:deployment:classes-rebuild --create-classes'
+alias data:import='ddev exec bin/console datahub:data-importer:process-queue-parallel'
+# alias migrate='ddev exec bin/console doctrine:migration:migrate'
+
+# -----------------------------------------------------------------------------
+# System & Navigation
+# -----------------------------------------------------------------------------
+alias python='python3'
+alias pip='/usr/local/bin/pip3'
+alias ss='cd ~/Sites/'
+alias chi='which'
+alias caffe='caffeinate'
+alias refresh='source ~/.zprofile && source ~/.zshrc'
+
+# -----------------------------------------------------------------------------
+# Homebrew (ARM64)
+# -----------------------------------------------------------------------------
+alias bru='arch -arm64 brew'
+alias bru:i='arch -arm64 brew install'
+
+# -----------------------------------------------------------------------------
+# Git Utilities
+# -----------------------------------------------------------------------------
 alias git:rm='git branch | grep -v "safe" | xargs git branch -D'
-alias ll='webpack --cartridge app_liujo --progress --mode development'
-alias pasg='openssl rand -base64 12'
+
+# -----------------------------------------------------------------------------
+# Utilities
+# -----------------------------------------------------------------------------
+alias date:2="date +%Y%m%d%H%M"
 alias randn='od -vAn -N4 -tu4 < /dev/urandom'
-alias refresh='source ~/.zprofile'
-alias repo='node $HOME/Sites/cli-tool/echoclean3/index.js'
-alias trash='sudo rm -rf ~/.Trash/*'
-alias s='python -m SimpleHTTPServer'
+alias mat='mat2'  # metadata cleaner
+alias tmp:mail='mailsy help'
+
+# -----------------------------------------------------------------------------
+# Local Servers
+# -----------------------------------------------------------------------------
+alias s='ruby -run -e httpd . -p'
+alias s2='darkhttpd ./ --port'
+alias ice='icecast -c ~/.config/icecast/settings.xml'
+
+# -----------------------------------------------------------------------------
+# Editors & File Management
+# -----------------------------------------------------------------------------
 alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
-alias tempo="curl wttr.in"
-alias todo='subl $HOME/Sites/design-colmar/README.md'
-alias Trash='rm -rf ~/.Trash/*'
-alias ww='cd $HOME/Sites/_liujo/sfcc && echo "=============== WatchDog ==============" && npm run build:common && webpack --cartridge app_colmar --watch --mode development'
+alias edit='open -a TextEdit'
+alias edit:alias='subl $HOME/.zsh_aliases'
+
+# -----------------------------------------------------------------------------
+# Web Development
+# -----------------------------------------------------------------------------
+alias new:site='npx create-html5-boilerplate'
+alias pwa:proxy='ngrok http http://localhost:3000'
+# -----------------------------------------------------------------------------

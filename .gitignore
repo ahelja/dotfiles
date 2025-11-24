@@ -1,5 +1,68 @@
-dw.config.json
-Gruntfile.js
-app_bootstrap
-app_demo
-*.zip
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Build outputs
+dist/
+build/
+.output/
+.netlify/
+
+# Cache directories
+.cache/
+.temp/
+.astro/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Testing
+coverage/
+.nyc_output/
+playwright-report/
+test-results/
+
+# Misc
+*.pem
+.vercel
+
+# Zsh environment (private)
+.zshenv
+
+# Gradle
+.gradle/
+**/build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+target/
+
+# Temporary files
+src/temp/
+packages/website/src/temp/

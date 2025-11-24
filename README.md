@@ -1,53 +1,48 @@
-Ten steps to dotFiles
-=====================
+# Home Dotfiles
 
-Make directory for dotfiles
+This repository contains my personal configuration files (dotfiles) for the Zsh shell and related tools.
 
-	$ mkdir ~/.dotfiles
-	
-Created a repository without a Working Tree. 
+## Contents
 
-	$ git init --bare $HOME/.dotfiles
-	
-Create Aliases for your dotfiles command
+- `.zshrc` — Main Zsh configuration
+- `.zprofile` — Environment and login shell settings
+- `.zsh_aliases` — Custom aliases for development, system, and utilities
+- `.zshenv` — Private environment variables (not tracked by git)
+- `install.sh` — Script to install dotfiles into your home directory
 
-	$ echo $'alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"' >> ~/.zprofile
+## Installation
 
-Update your session to new settings
+To install the dotfiles into your home directory, run:
 
-	$ source ~/.zprofile # or $ . ~/.zprofile
-	
-Ignore the untracked files in the current repository
+```sh
+./install.sh
+```
 
-	$ dotfiles config status.showUntrackedFiles no
+The script will copy `.zshrc`, `.zprofile`, `.zsh_aliases`, and `.zshenv` (if present) to your `$HOME`.
 
-Create an empty repository https://github.com/user/repo.git
+> **Note:** `.zshenv` is ignored by git (see `.gitignore`) because it may contain sensitive variables.
 
-	# What are you waiting for? Go create it
-	
-Adding a remote repository
+## Apply Changes
 
-	$ dotfiles remote add origin https://github.com/user/repo.git
-	
-Add file contents to the index
+After installation, apply the changes by running:
 
-	$ dotfiles add ~/.zprofile
-	
-Commit your changes
+```sh
+source ~/.zshrc
+```
 
-	$ dotfiles commit -m "first commit"
+Or simply restart your terminal.
 
-Check your change (optional)
+## Recommended Tools
 
-	$ dotfiles status
-	
-Push your change
+- [Zsh](https://www.zsh.org/)
+- [Homebrew](https://brew.sh/) (for macOS)
+- [DDEV](https://ddev.com/) (for web development)
+- [NVM](https://github.com/nvm-sh/nvm) (Node Version Manager)
 
-	$ dotfiles push -u origin master
-	
-Congratulations you made it
+## Customization
 
-	# dotfiles pull #ecc.
-	
-	# git clone --bare https://github.com/user/repo.git
-	# dotfiles config status.showUntrackedFiles no
+You can edit aliases in `.zsh_aliases` and add private variables to `.zshenv` (not tracked by git).
+
+## License
+
+These dotfiles are provided as-is. Feel free to use and modify them for your personal needs.

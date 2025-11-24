@@ -1,15 +1,27 @@
-# on mac use
-# ln -s .zshrc .zprofile
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.zsh_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.zsh_aliases ]; then
-    . ~/.zsh_aliases
+#!/bin/zsh
+# Carica variabili private se presenti
+if [ -f "$HOME/.zshenv" ]; then
+	source "$HOME/.zshenv"
 fi
 
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$HOME/.npm-global/bin:$PATH"
-export PATH="$HOME/.bin-global/:$PATH"
+# =============================================================================
+# Environment Configuration (.zprofile)
+# This file is loaded for login shells
+# =============================================================================
+
+# Homebrew environment
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Python/pip3 PATH
+export PATH="$PATH:/usr/local/bin/pip3"
+
+# NVM (Node Version Manager) configuration
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# Locale settings
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
